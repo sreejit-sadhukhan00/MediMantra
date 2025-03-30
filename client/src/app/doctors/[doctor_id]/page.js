@@ -38,10 +38,10 @@ export default function DoctorDetail({ params }) {
   useEffect(() => {
     // Unwrap params using React.use()
     const unwrappedParams = typeof params === 'object' && params instanceof Promise ? use(params) : params;
-    const doctorId = unwrappedParams?.doctor_Id; // Change from id to doctorId
+    const { id } = router.query; // Change from doctorId to id
     
-    if (doctorId) {
-      const foundDoctor = doctorsData.find(doc => doc.id === doctorId);
+    if (id) {
+      const foundDoctor = doctorsData.find(doc => doc.id === id);
       setDoctor(foundDoctor);
     }
     setLoading(false);
@@ -221,8 +221,7 @@ export default function DoctorDetail({ params }) {
                     </TabsTrigger>
                     <TabsTrigger value="reviews" className="flex-1 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-600">
                       Reviews
-                    </TabsTrigger>
-                  </TabsList>
+                    </TabsList>
                   
                   <TabsContent value="about">
                     <Card>
