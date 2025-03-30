@@ -38,7 +38,7 @@ export default function DoctorDetail({ params }) {
   useEffect(() => {
     // Unwrap params using React.use()
     const unwrappedParams = typeof params === 'object' && params instanceof Promise ? use(params) : params;
-    const { id } = router.query; // Change from doctorId to id
+    const { doctorId } = router.query; // Change from doctorId to id
     
     if (id) {
       const foundDoctor = doctorsData.find(doc => doc.id === id);
